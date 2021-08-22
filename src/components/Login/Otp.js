@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { verifyOtpRequest } from "../../store/auth/actions";
 import "./Login.css";
 
-const Otp = ({ mobile }) => {
+const Otp = ({ mobile, onBack }) => {
   const [otp, setOtp] = useState("");
   const [isEditClicked, setIsEditClicked] = useState(false);
   const hashedToken = useSelector((state) => state.auth.hashedToken);
@@ -20,7 +20,7 @@ const Otp = ({ mobile }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("Verified");
-    // dispatch(verifyOtpRequest(mobile, hashedToken, otp));
+    dispatch(verifyOtpRequest(mobile, hashedToken, otp));
     // setIsRequested(true);
   };
 
@@ -28,14 +28,14 @@ const Otp = ({ mobile }) => {
     setIsEditClicked(true);
   };
 
-  const form = (
+  return (
     <div>
       <div className="title-group">OTP</div>
       <div className="title-group">Verification Code</div>
       <div className="title-group">We have sent the code verification to</div>
       <div className="edit-button">
         <div className="title-group">{mobile}</div>
-        <div onClick={editIconHandler}>
+        <div onClick={onBack}>
           <EditIcon />
         </div>
       </div>
@@ -55,8 +55,6 @@ const Otp = ({ mobile }) => {
       </form>
     </div>
   );
-
-  return <>{isEditClicked ? <Login /> : form}</>;
 };
 
 export default Otp;
