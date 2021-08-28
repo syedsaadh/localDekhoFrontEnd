@@ -26,10 +26,15 @@ export const actions = {
 export const sendOtpRequest = (mobile) => {
   return apiHandler({
     action: "auth/" + actions.SEND_OTP,
+    // handler: async () => {
+    //   await wait(2000);
+    //   return { mobile: mobile, hash: "asaffa" };
+    // }, //LoginOtpGenaration(mobile)
     handler: async () => {
-      await wait(2000);
-      return { mobile: mobile, hash: "asaffa" };
-    }, //LoginOtpGenaration(mobile)
+      await wait(500);
+      return LoginOtpGenaration(mobile);
+    },
+    // handler: () => LoginOtpGenaration(mobile),
   });
 };
 

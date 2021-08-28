@@ -1,0 +1,12 @@
+[
+  {
+    "icon": "bx bx-user-pin",
+    "count": "12",
+    "title": "Accepted Request"
+  },
+  {
+    "icon": "bx bx-task",
+    "count": "8",
+    "title": "Previous Services"
+  }
+]

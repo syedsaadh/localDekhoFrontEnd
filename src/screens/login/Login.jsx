@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./Login.css";
+import "./login.css";
 import Otp from "./Otp";
 import { Button } from "antd";
 import { useDispatch, useSelector } from "react-redux";
@@ -29,27 +29,38 @@ const Login = () => {
   };
 
   const form = (
-    <div>
-      <div className="title-group">Login Account</div>
-      <div className="title-group">Hello, welcome to your LocalDekho</div>
-      <form className="form">
-        <div className="input-group">
-          <label htmlFor="mobile">Mobile Number</label>
-          <input
-            value={mobile}
-            type="tel"
-            name="mobile"
-            placeholder="123456789"
-            size="10"
-            pattern="^(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}$"
-            onChange={handleChange}
-            required
-          />
+    <div className="login_body">
+      <div className="login__root">
+        {/* <div>hello</div> */}
+        <div className="title-group__header">Login Account</div>
+        <div className="title-group_info">
+          Hello, welcome to your LocalDekho
         </div>
-        <Button type="primary" onClick={handleSubmit} loading={auth.loading}>
-          Request OTP
-        </Button>
-      </form>
+        <form className="form" onSubmit={handleSubmit}>
+          <div className="input-group">
+            <label htmlFor="mobile">Mobile Number</label>
+            <input
+              value={mobile}
+              type="tel"
+              name="mobile"
+              placeholder="123456789"
+              size="10"
+              pattern="^(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}$"
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="button__head">
+            <Button
+              type="primary"
+              onClick={handleSubmit}
+              loading={auth.loading}
+            >
+              Request OTP
+            </Button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 
