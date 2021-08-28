@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { actions } from "./actions";
-import { LoginOtpGenaration } from "../../services/authentication/index";
+// import { LoginOtpGenaration } from "../../services/authentication/index";
 import { actionFailed, actionRequest, actionSuccess } from "../helper";
-import { message, notification } from "antd";
+import { notification } from "antd";
 
 const authSlice = createSlice({
   name: "auth",
